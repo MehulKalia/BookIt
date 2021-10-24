@@ -8,25 +8,25 @@ oAuth2Client.setCredentials({refresh_token: '1//04_s4xlQU7UdpCgYIARAAGAQSNwF-L9I
 
 const calendar = google.calendar({version: 'v3', auth: oAuth2Client})
 //date format: year, month - 1, day, hour, minute, second
-const eventStartTime = new Date(2021, 9, 23, 22, 0, 0)
+const eventStartTime = new Date(2021, 9, 23, 16, 0, 0)
 //eventStartTime.setDate(2021, 9, 23)
 
-const eventEndTime = new Date(2021, 9, 23, 23, 0, 0)
+const eventEndTime = new Date(2021, 9, 23, 17, 0, 0)
 //const eventEndTime
 //eventEndTime.setDate(eventEndTime.getDay())
 //eventEndTime.setMinutes(eventEndTime.getMinutes() + 45)
 
 const event = {
-  summary: 'Proof of concept',
+  summary: 'Meeting',
   location: '266 Ferst Dr NW, Atlanta, GA 30332',
   description: 'Meeting that works for both of us',
   start : {
     dateTime: eventStartTime,
-    timeZone: 'America/Denver'
+    timeZone: 'America/New_York'
   },
   end: {
     dateTime: eventEndTime,
-    timeZone: 'America/Denver'
+    timeZone: 'America/New_York'
   }
 }
 
@@ -35,14 +35,14 @@ calendar.freebusy.query({
   resource: {
     timeMin: eventStartTime,
     timeMax: eventEndTime,
-    timeZone: 'America/Denver',
+    timeZone: 'America/New_York',
     items: [{id: 'primary'}],
   }
 }, (err, res) => {
   if(err) return console.error('Free busy Query Error: ', err)
 
   //array that contains all the busy times in primary calendar
-  const eventsArr = res.data.calendars.primary.busy(new Date() + 2)
+  const eventsArr = res.data.calendars.primary.busy
   const array2 = 
   {
       start: '2021-10-23T18:00:00-06:00',
