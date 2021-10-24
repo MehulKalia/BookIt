@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+    <title>My Website</title>
+    <style>
+        *,
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgb(236, 152, 42);
+}
+
+.center {
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 144px;
+}
+
+p {
+    font-size: 64px;
+}
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+    <script>
+        var Calendar = require('tui-calendar'); /* CommonJS */
+require("tui-calendar/dist/tui-calendar.css");
+var calendar = new Calendar('#calendar', {
+    defaultView: 'month',
+    taskView: true,
+    template: {
+      monthDayname: function(dayname) {
+        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+      }
+    }
+  });
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <h1>Hello Again!</h1>
+        <iframe src="https://calendar.google.com/calendar/embed?src=thealdore%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        
+    </div>
+</body>
+
+</html>
